@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>CodeQuest：邏輯迷宮 第一章</title>
+  <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+  <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+  <style>
+    body {
+      background-color: #111;
+      color: #eee;
+      font-family: "微軟正黑體", sans-serif;
+      padding: 20px;
+    }
+    .box {
+      border: 2px solid #666;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #222;
+      max-width: 600px;
+      margin: auto;
+    }
+    button {
+      background-color: #444;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px 5px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #666;
+    }
+    input {
+      padding: 5px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>CodeQuest：邏輯迷宮</h1>
+    <div id="game-area"></div>
+    <div id="input-area"></div>
+  </div>
+
+  <!-- 載入主程式 -->
+  <py-script src="main.py"></py-script>
+</body>
+</html>
