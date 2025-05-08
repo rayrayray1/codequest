@@ -93,3 +93,50 @@ def next_stage():
 
 # 遊戲開始
 start_game()
+def next_stage():
+    global current_stage, current_floor
+    current_stage += 1
+    current_floor += 1
+    show_message(f"""你來到第 {current_stage} 關，第 {current_floor} 層。
+石門上寫著：「學習目標：數值運算與變數應用」""")
+    Element("input-area").element.innerHTML = """
+        <button onclick="start_math_challenge()">開始挑戰</button>
+    """
+
+def start_math_challenge():
+    show_message("請輸入第一個數字：")
+    Element("input-area").element.innerHTML = """
+        <input type="text" id="num1">
+        <button onclick="get_second_number()">下一步</button>
+    """
+
+def get_second_number():
+    global num1
+    try:
+        num1 = int(js.document.getElementById("num1").value)
+        show_message("請輸入第二個數字：")
+        Element("input-area").element.innerHTML = """
+            <input type="text" id="num2">
+            <button onclick="calculate_sum()">計算總和</button>
+        """
+    except:
+        show_message("請輸入正確的數字。")
+        start_math_challenge()
+
+def calculate_sum():
+    try:
+        num2 = int(js.document.getElementById("num2").value)
+        total = num1 + num2
+        show_message(f"你召喚出了數字之力！{num1} + {num2} = {total}")
+        Element("input-area").element.innerHTML = """
+            <button onclick="stage2_clear()">繼續</button>
+        """
+    except:
+        show_message("請輸入正確的數字。")
+        get_second_number()
+
+def stage2_clear():
+    show_message("太好了！你掌握了數值與變數之力，成功通過第二關。")
+    Element("input-area").element.innerHTML = """
+        <button onclick="next_stage()">前往下一層</button>
+    """
